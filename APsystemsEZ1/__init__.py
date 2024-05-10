@@ -258,9 +258,9 @@ class APsystemsEZ1M:
         The key in the 'data' object is:
         - 'maxPower': Indicates the newly set maximum power output of the device in watts.
         """
-        if not 30 <= power_limit <= 800:
+        if not 30 <= power_limit <= 960:
             raise ValueError(
-                f"Invalid setMaxPower value: expected int between '30' and '800', got '{power_limit}'"
+                f"Invalid setMaxPower value: expected int between '30' and '960', got '{power_limit}'"
             )
         request = await self._request(f"setMaxPower?p={power_limit}")
         return int(request["data"]["maxPower"]) if request else None
